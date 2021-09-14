@@ -1,0 +1,25 @@
+- 
+  name: test
+  hosts: target1
+  tasks:
+    - 
+      name: 'Créer un dossier loop dans home'
+      file:
+        path: /home/osboxes/loop/
+        state: directory
+        owner: osboxes
+        group: osboxes
+        mode: 0600
+    
+    -
+      name: 'créer des fichier en fonction du nom'
+      copy:
+        content: "test"
+        dest: /home/osboxes/loop/{{ item }}
+        owner: osboxes
+        group: osboxes
+      loop:
+        - flo
+        - liberty 
+        - steven
+        - pilou
