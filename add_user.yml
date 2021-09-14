@@ -1,0 +1,7 @@
+- name: "création d'utilisateur"
+  hosts: target1
+  tasks:
+    - name : " création de l'utilisateur {{ item }}"
+      user:
+        name: steven
+        shell: /bin/bash
